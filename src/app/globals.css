@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/*
+ * Signal Leads design tokens — Kime brand: deep evergreen surfaces, lime signal accents,
+ * warm cream text. Components use these tokens, never literal colors.
+ */
+:root {
+  --background: #07170f;
+  --background-raised: #0a1f15;
+  --surface: #0d2419;
+  --surface-elevated: #123322;
+  --surface-hover: #163b28;
+  --border: #1d3d2b;
+  --border-strong: #2b5a40;
+  --primary: #76c442;
+  --primary-hover: #86d150;
+  --primary-foreground: #06140c;
+  --accent: #a6e35d;
+  --kime-lime: #c9e27f;
+  --muted: #527863;
+  --foreground: #f1f3e9;
+  --foreground-muted: #9bb4a4;
+  --foreground-subtle: #6f8c7b;
+  --danger: #ef7d62;
+  --warning: #e9b44c;
+  --info: #7cb9d6;
+  --temp-cold: #7fa9bc;
+  --temp-warm: #e9c25c;
+  --temp-qualified: #a6e35d;
+  --temp-hot: #f2925c;
+  --ring: #a6e35d;
+  --radius: 0.75rem;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-raised: var(--background-raised);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-kime: var(--kime-lime);
+  --color-muted: var(--muted);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-temp-cold: var(--temp-cold);
+  --color-temp-warm: var(--temp-warm);
+  --color-temp-qualified: var(--temp-qualified);
+  --color-temp-hot: var(--temp-hot);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-script: var(--font-script), cursive;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-fade-in: fade-in 0.25s ease-out;
+  --animate-slide-up: slide-up 0.3s ease-out;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.85); }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(900px 480px at 0% -10%, rgb(118 196 66 / 0.07), transparent 70%),
+      linear-gradient(160deg, #0a1e15 0%, #07170f 55%, #061209 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: rgb(166 227 93 / 0.3);
+  }
+  /* Quiet scrollbars that match the surfaces. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  input[type="number"]::-webkit-inner-spin-button {
+    opacity: 0.4;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--kime-lime);
+    font-weight: 500;
+  }
+  .card {
+    background: rgb(13 36 25 / 0.82);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

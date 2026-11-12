@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Signal Leads local embedded database
+.data/
+/test-results/
+/playwright-report/
+
